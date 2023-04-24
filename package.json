@@ -1,8 +1,8 @@
 {
-  "name": "jsscroll",
+  "name": "js-scroll-animations",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "dist/js-scroll-animations.js",
   "directories": {
     "example": "example"
   },
@@ -17,6 +17,7 @@
   "license": "ISC",
   "devDependencies": {
     "browserify": "^17.0.0",
+    "fs-extra": "^11.1.1",
     "gulp": "^4.0.2",
     "gulp-autoprefixer": "^8.0.0",
     "gulp-buffer": "^0.0.2",
@@ -28,9 +29,7 @@
     "gulp-uglify": "^3.0.2",
     "gulplog": "^2.0.1",
     "node-sass": "^8.0.0",
-    "sass": "^1.62.0"
-  },
-  "dependencies": {
-    "fs-extra": "^11.1.1"
+    "sass": "^1.62.0",
+    "yargs": "^17.7.1"
   }
 }

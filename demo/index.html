@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>jsScroll example page</title>
+
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" href="../dist/js-scroll-animations.min.css" />
+
+    <style type="text/css">
+      body {
+        margin: 0;
+        padding: 0 0 14rem;
+        font-size: 16px;
+        font-family: monospace, sans-serif;
+        background-color: #252525;
+      }
+      h1 {
+        margin: 0;
+        padding: 0;
+        font-size: 2em;
+        background-color: #000;
+        color: #fff;
+        padding: 1em;
+      }
+      p {
+        margin: 0;
+        padding: 0;
+        font-size: 1.5em;
+        padding: 1em;
+      }
+      section {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        gap: 2rem;
+        width: 100%;
+        max-width: 1024px;
+        margin: 8rem auto;
+        padding: 2rem;
+      }
+      .box {
+        display: flex;
+        justify-content: flex-start;
+        align-items: flex-end;
+        width: 200px;
+        height: 200px;
+        color: #fff;
+        padding: 1em;
+        border: solid 1px black;
+      }
+      ul {
+        font-size: 0.8rem;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+      }
+      .lightGreen {
+        border-color: lightGreen;
+      }
+      .lightBlue {
+        border-color: lightBlue;
+      }
+      .lightYellow {
+        border-color: lightgoldenrodyellow;
+      }
+      .controls {
+        display: flex;
+        justify-content: center;
+        gap: 1rem;
+        width: 100%;
+        height: auto;
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        padding: 1em;
+        background-color: #000;
+        color: #fff;
+        z-index: 10;
+      }
+      button {
+        color: #fff;
+        background: none;
+        font-size: 0.9rem;
+        text-transform: uppercase;
+        border: 1px solid lightGreen;
+        padding: 0.5rem;
+        border-radius: 0.2rem;
+        cursor: pointer;
+        outline: none;
+      }
+      button:hover {
+        background-color: lightGreen;
+        color: #000;
+      }
+      button:focus {
+        outline: none;
+      }
+
+      .blur .box {
+        position: absolute;
+        top: 0;
+      }
+    </style>
+
+    <script type="text/javascript">
+      function toKebabCase(string) {
+        return string
+          .replace(/([a-z])([A-Z])/g, "$1-$2")
+          .replace(/[\s_]+/g, "-")
+          .toLowerCase();
+      }
+
+      function getAllDataAttributesFromElement(element) {
+        const attributes = element.dataset;
+        const data = {};
+        for (const key in attributes) {
+          if (Object.hasOwnProperty.call(attributes, key)) {
+            const value = attributes[key];
+            const newKey = toKebabCase(key);
+            data[newKey] = value;
+          }
+        }
+        return data;
+      }
+
+      document.addEventListener("DOMContentLoaded", () => {
+        // Initiate
+        const jsScroll = jsScrollAnimations();
+        jsScroll.init();
+
+        // Buttons
+        document.getElementById("btnDisable").addEventListener("click", () => {
+          jsScroll.disable();
+        });
+
+        document.getElementById("btnInit").addEventListener("click", () => {
+          jsScroll.init();
+        });
+
+        document.getElementById("btnReset").addEventListener("click", () => {
+          jsScroll.reset();
+        });
+
+        document.getElementById("btnStop").addEventListener("click", () => {
+          jsScroll.stop();
+        });
+
+        // Info
+        const el = document.querySelectorAll("[data-jsscroll]");
+        el.forEach((item) => {
+          let html = "<ul>";
+          const attributes = getAllDataAttributesFromElement(item);
+
+          for (const key in attributes) {
+            if (Object.hasOwnProperty.call(attributes, key)) {
+              const value = attributes[key];
+              if (value) {
+                html += `<li><strong>${key}</strong>: ${value}</li>`;
+              } else {
+                html += `<li><strong>${key}</strong></li>`;
+              }
+            }
+          }
+
+          html += "</ul>";
+          item.innerHTML = html;
+        });
+      });
+    </script>
+  </head>
+
+  <body>
+    <h1>jsScrollAnimations Example Page</h1>
+
+    <div class="controls">
+      <button id="btnInit">init</button>
+      <button id="btnStop">stop</button>
+      <button id="btnReset">reset</button>
+      <button id="btnDisable">disable</button>
+    </div>
+
+    <section>
+      <div
+        data-jsscroll
+        data-jsscroll-delay="200"
+        data-jsscroll-offset="1"
+        data-jsscroll-slide-top
+        class="box lightGreen"
+      >
+        content
+      </div>
+      <div
+        data-jsscroll
+        data-jsscroll-delay="600"
+        data-jsscroll-offset="1"
+        data-jsscroll-slide-top
+        class="box lightYellow"
+      >
+        content
+      </div>
+      <div
+        data-jsscroll
+        data-jsscroll-delay="1000"
+        data-jsscroll-offset="1"
+        data-jsscroll-slide-top
+        class="box lightBlue"
+      >
+        content
+      </div>
+    </section>
+
+    <section>
+      <div
+        data-jsscroll
+        data-jsscroll-delay="200"
+        data-jsscroll-offset="2"
+        data-jsscroll-slide-left
+        class="box lightGreen"
+      >
+        content
+      </div>
+    </section>
+
+    <section>
+      <div
+        data-jsscroll
+        data-jsscroll-offset="2"
+        data-jsscroll-slide-right
+        class="box lightYellow"
+      >
+        content
+      </div>
+    </section>
+
+    <section>
+      <div
+        data-jsscroll
+        data-jsscroll-offset="2"
+        data-jsscroll-slide-left
+        class="box lightBlue"
+      >
+        content
+      </div>
+    </section>
+
+    <section>
+      <div
+        data-jsscroll
+        data-jsscroll-offset="2"
+        data-jsscroll-slide-bottom
+        class="box lightGreen"
+      >
+        content
+      </div>
+    </section>
+
+    <section class="blur">
+      <div
+        data-jsscroll
+        data-jsscroll-delay="400"
+        data-jsscroll-offset="1"
+        data-jsscroll-slide-left
+        class="box lightGreen"
+      >
+        content
+      </div>
+      <div
+        data-jsscroll
+        data-jsscroll-delay="420"
+        data-jsscroll-offset="1"
+        data-jsscroll-slide-left
+        class="box lightGreen"
+      >
+        content
+      </div>
+      <div
+        data-jsscroll
+        data-jsscroll-delay="450"
+        data-jsscroll-offset="1"
+        data-jsscroll-slide-left
+        class="box lightGreen"
+      >
+        content
+      </div>
+      <div
+        data-jsscroll
+        data-jsscroll-delay="490"
+        data-jsscroll-offset="1"
+        data-jsscroll-slide-left
+        class="box lightGreen"
+      >
+        content
+      </div>
+    </section>
+
+    <script src="../dist/js-scroll-animations.min.js"></script>
+  </body>
+</html>
