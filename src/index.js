@@ -6,7 +6,8 @@ function jsScrollAnimations() {
     const top = el.getBoundingClientRect().top;
     const windowHeight =
       window.innerHeight || document.documentElement.clientHeight;
-    const inView = top > 0 && top <= windowHeight / threshold;
+    const inView = top >= 0 && top <= windowHeight / threshold;
+
     return inView;
   }
 
@@ -15,9 +16,9 @@ function jsScrollAnimations() {
       scrollElements.forEach((el) => {
         const delay = el.getAttribute("data-jsscroll-delay") || 0;
         const reset = el.hasAttribute("data-jsscroll-reset");
-        const offset = el.getAttribute("data-jsscroll-offset") || 1.25;
+        const threshold = el.getAttribute("data-jsscroll-threshold") || 1.25;
 
-        const isInView = elementInView(el, parseFloat(offset));
+        const isInView = elementInView(el, parseFloat(threshold));
 
         if (isInView) {
           setTimeout(() => {
@@ -55,12 +56,12 @@ function jsScrollAnimations() {
     });
   }
 
-  function stop() {
+  function pause() {
     window.removeEventListener("scroll", handleScrollAnimation);
   }
 
   function disable() {
-    stop();
+    pause();
     reset();
     scrollElements.forEach((el) => {
       el.classList.add("jsScroll__disabled");
@@ -69,7 +70,7 @@ function jsScrollAnimations() {
 
   return {
     init,
-    stop,
+    pause,
     reset,
     disable,
   };

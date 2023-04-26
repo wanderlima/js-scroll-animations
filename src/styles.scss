@@ -12,10 +12,6 @@
   animation: fadeIn 0.5s ease-in-out both;
 }
 
-[data-jsscroll-fade-in-bottom].jsScroll__scrolled {
-  animation: fadeInBottom 0.5s ease-in-out both;
-}
-
 [data-jsscroll-slide-left].jsScroll__scrolled {
   animation: slideInLeft 0.5s ease-in-out both;
 }
@@ -26,6 +22,10 @@
 
 [data-jsscroll-slide-top].jsScroll__scrolled {
   animation: slideTop 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+}
+
+[data-jsscroll-slide-bottom].jsScroll__scrolled {
+  animation: fadeInBottom 0.5s ease-in-out both;
 }
 
 /* ----------------------------------------------
