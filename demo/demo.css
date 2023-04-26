@@ -1,0 +1,92 @@
+body {
+  margin: 0;
+  padding: 0 0 14rem;
+  font-size: 16px;
+  font-family: monospace, sans-serif;
+  background-color: #252525;
+}
+h1 {
+  margin: 0;
+  padding: 0;
+  font-size: 1.5em;
+  border-bottom: solid 1px lightgreen;
+  color: #fff;
+  padding: 1em;
+}
+p {
+  margin: 0;
+  padding: 0;
+  font-size: 1.5em;
+  padding: 1em;
+}
+section {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  width: 100%;
+  max-width: 1024px;
+  margin: 8rem auto;
+  padding: 2rem;
+}
+.box {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-end;
+  width: 200px;
+  height: 200px;
+  color: #fff;
+  padding: 1em;
+  border: solid 1px black;
+}
+ul {
+  font-size: 0.8rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.lightGreen {
+  border-color: lightGreen;
+}
+.lightBlue {
+  border-color: lightBlue;
+}
+.lightYellow {
+  border-color: lightgoldenrodyellow;
+}
+.controls {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  width: 100%;
+  height: auto;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  padding: 1em;
+  background-color: #000;
+  color: #fff;
+  z-index: 10;
+}
+button {
+  color: #fff;
+  background: none;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  border: 1px solid lightGreen;
+  padding: 0.5rem;
+  border-radius: 0.2rem;
+  cursor: pointer;
+  outline: none;
+}
+button:hover {
+  background-color: lightGreen;
+  color: #000;
+}
+button:focus {
+  outline: none;
+}
+.blur .box {
+  position: absolute;
+  top: 0;
+}
