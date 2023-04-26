@@ -1,10 +1,10 @@
 {
   "name": "js-scroll-animations",
-  "version": "1.0.0",
-  "description": "",
-  "main": "dist/js-scroll-animations.js",
+  "version": "0.9.00",
+  "description": "Simple and lightweight library for scroll animations",
+  "main": "dist/index.js",
   "directories": {
-    "example": "example"
+    "demo": "demo"
   },
   "scripts": {
     "watch": "gulp watch --development",
@@ -14,21 +14,24 @@
     "name": "Wander Lima",
     "url": "http://wanderlima.com/"
   },
-  "license": "ISC",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/wanderlima/js-scroll-animations/issues"
+  },
+  "keywords": [
+    "js",
+    "javascript",
+    "scroll",
+    "animations",
+    "scroll animation"
+  ],
   "devDependencies": {
-    "browserify": "^17.0.0",
     "fs-extra": "^11.1.1",
     "gulp": "^4.0.2",
     "gulp-autoprefixer": "^8.0.0",
-    "gulp-buffer": "^0.0.2",
     "gulp-minify": "^3.1.0",
-    "gulp-rename": "^2.0.0",
     "gulp-sass": "^5.1.0",
     "gulp-sourcemaps": "^3.0.0",
-    "gulp-tap": "^2.0.0",
-    "gulp-uglify": "^3.0.2",
-    "gulplog": "^2.0.1",
-    "node-sass": "^8.0.0",
     "sass": "^1.62.0",
     "yargs": "^17.7.1"
   }

@@ -2,16 +2,10 @@ const path = require("path");
 
 const fs = require("fs-extra");
 const gulp = require("gulp");
-const rename = require("gulp-rename");
 const minify = require("gulp-minify");
 const sourcemaps = require("gulp-sourcemaps");
 const autoprefixer = require("gulp-autoprefixer");
 const sass = require("gulp-sass")(require("sass"));
-const browserify = require("browserify");
-const log = require("gulplog");
-const tap = require("gulp-tap");
-const buffer = require("gulp-buffer");
-const uglify = require("gulp-uglify");
 var argv = require("yargs").argv;
 
 const SRC_PATH = path.join(__dirname, "src");
@@ -51,36 +45,8 @@ function cssBuild() {
       )
     )
     .pipe(sourcemaps.write("."))
-    .pipe(rename({ suffix: ".min" }))
     .pipe(gulp.dest(BUILD_PATH));
 }
-
-// function jsBuild() {
-//   return (
-//     gulp
-//       .src("src/**/*.js", { read: false })
-//       .pipe(
-//         tap(function (file) {
-//           log.info("bundling " + file.path);
-//           file.contents = browserify(file.path, { debug: true }).bundle();
-//         })
-//       )
-//       .pipe(buffer())
-//       .pipe(sourcemaps.init({ loadMaps: true }))
-//       // .pipe(uglify())
-//       .pipe(
-//         minify({
-//           ext: {
-//             min: ".min.js",
-//           },
-//           noSource: true,
-//         })
-//       )
-//       .pipe(sourcemaps.write("."))
-//       .pipe(rename({ suffix: ".min" }))
-//       .pipe(gulp.dest(BUILD_PATH))
-//   );
-// }
 
 function jsBuild(cb) {
   return gulp
@@ -89,7 +55,7 @@ function jsBuild(cb) {
     .pipe(
       minify({
         ext: {
-          min: ".min.js",
+          min: ".js",
         },
         noSource: true,
       })
@@ -106,4 +72,4 @@ function watch() {
 exports.clean = clean;
 exports.watch = watch;
 
-exports.build = gulp.series(clean, gulp.parallel(cssBuild, jsBuild));
+exports.build = gulp.series(clean, cssBuild, jsBuild);
