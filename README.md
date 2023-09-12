@@ -32,15 +32,18 @@ npm i js-scroll-animations
 In your HTML file, add the following link and script tags:
 
 ```html
-<link rel="stylesheet" href="js-scroll-animations/styles.css" />
-<script src="js-scroll-animations/index.js"></script>
+<link
+  rel="stylesheet"
+  href="../node_modules/js-scroll-animations/dist/styles.css"
+/>
+<script src="../node_modules/js-scroll-animations/dist/js-scroll-animations.js"></script>
 ```
 
 Alternatively, if you are using a module bundler, you can import the assets in your JavaScript file:
 
 ```js
 import jsScroll from "js-scroll-animations";
-import "js-scroll-animations/styles.css";
+import "js-scroll-animations/dist/styles.css";
 ```
 
 ### 3. Add the dataset property to the elements you want to animate
