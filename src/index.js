@@ -1,4 +1,6 @@
-function jsScrollAnimations() {
+import "./styles.scss";
+
+export default function jsScrollAnimations() {
   let throttleTimer = false;
   let scrollElements = document.querySelectorAll("[data-jsscroll]");
 
