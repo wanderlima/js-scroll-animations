@@ -73,6 +73,8 @@ jsScroll.init();
 
 **That's it!** Check the demo page to see how it works and how to set it up.
 
+[https://wanderlima.github.io/js-scroll-animations/](https://wanderlima.github.io/js-scroll-animations/)
+
 ## Properties
 
 The following table shows the available dataset properties that you can use to configure the scroll animations:
