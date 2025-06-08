@@ -13,6 +13,13 @@ h1 {
   color: #fff;
   padding: 1em;
 }
+h1 a {
+  color: lightgoldenrodyellow;
+  text-decoration: none;
+}
+h1 a:hover {
+  text-decoration: underline;
+}
 p {
   margin: 0;
   padding: 0;
