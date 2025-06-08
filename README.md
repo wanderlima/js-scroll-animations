@@ -11,6 +11,10 @@ JS Scroll Animations is a simple and lightweight library for scroll animations. 
 3. JS Actions
 4. CSS Animations
 
+## Demo
+
+[https://wanderlima.github.io/js-scroll-animations/](https://wanderlima.github.io/js-scroll-animations/)
+
 ## Instructions
 
 ### 1. Install or download the package
@@ -70,10 +74,6 @@ Initiate the animations with the following code:
 const jsScroll = jsScrollAnimations();
 jsScroll.init();
 ```
-
-**That's it!** Check the demo page to see how it works and how to set it up.
-
-[https://wanderlima.github.io/js-scroll-animations/](https://wanderlima.github.io/js-scroll-animations/)
 
 ## Properties
 
