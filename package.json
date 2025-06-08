@@ -43,7 +43,7 @@
     "autoprefixer": "^10.4.15",
     "node-sass": "^9.0.0",
     "postcss": "^8.4.29",
-    "rollup": "^3.29.0",
+    "rollup": "^4.42.0",
     "rollup-plugin-postcss": "^4.0.2",
     "rollup-plugin-scss": "^4.0.0",
     "rollup-plugin-terser": "^7.0.2"
